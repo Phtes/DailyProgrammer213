@@ -7,7 +7,7 @@
 int main()
 {
 	// value maps
-	char vowel[12] { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' }; //binary search match map
+	char vowel[6] { 'a', 'e', 'i', 'o', 'u'}; //binary search match map
 	std::vector<char> vowels(vowel, vowel+12); // allocate mem
 	std::sort(vowels.begin(), vowels.end()); // prep map for binary search
 	std::string input;
@@ -21,7 +21,7 @@ int main()
 	for (int i = 0; i < input.length(); i++)
 	{
 		printf("%c", input[i]);
-		if (std::binary_search(vowels.begin(), vowels.end(), input[i]) == false && isalpha(input[i]))
+		if (std::binary_search(vowels.begin(), vowels.end(), tolower(input[i])) == false && isalpha(input[i]))
 		{
 			printf("o%c", tolower(input[i]));
 		}
